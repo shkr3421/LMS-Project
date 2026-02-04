@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS | Secure Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --brand-primary: #2563eb;
+            --brand-secondary: #1e40af;
+            --bg-page: #f9fafb; /* Classy Off-White */
+            --text-main: #0f172a;
+            --text-muted: #475569;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            /* Subtle Mesh Gradient for a "Classy" feel */
+            background-color: var(--bg-page);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(245, 158, 11, 0.03) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.05) 0px, transparent 50%);
+            min-height: 100vh;
+            color: var(--text-main);
+        }
+
+        /* The Card */
+        .main-container {
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.08);
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Left Branding Panel */
+        .hero-panel {
+            background: #1e293b; /* Deep Slate - looks much classier than pure black */
+            position: relative;
+        }
+
+        /* Form Inputs */
+        .form-input {
+            background: #ffffff;
+            border: 1.5px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--brand-primary);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+            outline: none;
+        }
+
+        /* Role Selection Styling */
+        .role-card {
+            background: #ffffff;
+            border: 1.5px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+
+        .radio-input:checked + .role-card {
+            border-color: var(--brand-primary);
+            background: #eff6ff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.05);
+        }
+
+        .radio-input:checked + .role-card .role-icon-box {
+            background: var(--brand-primary);
+            color: white;
+        }
+
+        .role-icon-box {
+            background: #f8fafc;
+            color: var(--text-muted);
+        }
+
+        /* Button Styling */
+        .primary-btn {
+            background: var(--brand-primary);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+
+        .primary-btn:hover {
+            background: var(--brand-secondary);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Marquee Bar */
+        .marquee-container {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            height: 40px;
+        }
+
+        .signup-only { display: none; }
+        .signup-only.show { display: block; }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4">
+    
+    <div class="fixed top-0 w-full marquee-container flex items-center overflow-hidden z-50">
+        <div class="whitespace-nowrap animate-[marquee_40s_linear_infinite] px-4 text-[13px] text-slate-500 font-medium">
+            🎓 Welcome to SmartLMS • India's Leading Digital Learning Platform • Secure Access Portal • Made in India for Indian Education • Trusted by 10K+ Expert Faculty • System Status: Stable
+        </div>
+    </div>
+
+    <div class="w-full max-w-6xl grid lg:grid-cols-2 bg-white rounded-[2.5rem] overflow-hidden main-container mt-12 border border-slate-100">
+        
+        <div class="hidden lg:flex flex-col justify-between p-12 hero-panel text-white">
+            <div class="z-10">
+                <div class="flex items-center space-x-3 mb-16">
+                    <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight uppercase">SmartLMS</span>
+                </div>
+                <h2 class="text-5xl font-extrabold leading-tight mb-6">
+                    Professional<br>
+                    <span class="text-blue-500">Learning</span> Hub.
+                </h2>
+                <p class="text-slate-400 text-lg leading-relaxed mb-10 max-w-sm">
+                    Access your comprehensive dashboard for academic excellence and resource management.
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <i class="fas fa-users text-blue-500"></i>
+                        <span class="text-sm font-medium">500,000+ Enrolled Students</span>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <i class="fas fa-chalkboard-teacher text-blue-500"></i>
+                        <span class="text-sm font-medium">10,000+ Verified Educators</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="z-10 flex justify-between items-center text-slate-500 text-xs font-mono">
+                <span>© 2026 GLOBAL PORTAL</span>
+                <span>SECURE v2.1.0</span>
+            </div>
+        </div>
+
+        <div class="p-8 lg:p-14 bg-white">
+            <div class="mb-10">
+                <h3 id="form-title" class="text-3xl font-extrabold text-slate-900 mb-2">Portal Access</h3>
+                <p id="form-subtitle" class="text-slate-500">Please provide your credentials to continue.</p>
+            </div>
+
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="bg-blue-50 border border-blue-100 text-blue-800 p-4 rounded-xl mb-8 text-sm flex items-center">
+                    <i class="fas fa-info-circle mr-3"></i> {{ messages[0] }}
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            <form action="/auth" method="POST" class="space-y-4" id="auth-form">
+                <input type="hidden" name="action" id="auth-action" value="login">
+                
+                <div class="signup-only" id="name-field">
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2 ml-1">Full Name</label>
+                    <input type="text" name="name" id="name-input" placeholder="e.g. Rahul Sharma" 
+                        class="w-full px-4 py-3.5 form-input rounded-xl text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2 ml-1">Username</label>
+                    <input type="text" name="username" placeholder="Username" required 
+                        class="w-full px-4 py-3.5 form-input rounded-xl text-sm">
+                </div>
+                
+                <div class="signup-only" id="email-field">
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2 ml-1">Email Address</label>
+                    <input type="email" name="email" id="email-input" placeholder="email@university.com" 
+                        class="w-full px-4 py-3.5 form-input rounded-xl text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2 ml-1">Password</label>
+                    <input type="password" name="password" placeholder="••••••••" required 
+                        class="w-full px-4 py-3.5 form-input rounded-xl text-sm">
+                </div>
+
+                <div class="pt-4">
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 ml-1">Account Role</label>
+                    <div class="grid grid-cols-1 gap-3">
+                        <label class="role-option">
+                            <input type="radio" name="role" value="student" class="hidden radio-input" checked>
+                            <div class="role-card flex items-center p-3.5 rounded-xl">
+                                <div class="w-9 h-9 role-icon-box rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-user-graduate text-sm"></i>
+                                </div>
+                                <span class="font-bold text-sm text-slate-700">Student Portal</span>
+                            </div>
+                        </label>
+
+                        <label class="role-option">
+                            <input type="radio" name="role" value="faculty" class="hidden radio-input">
+                            <div class="role-card flex items-center p-3.5 rounded-xl">
+                                <div class="w-9 h-9 role-icon-box rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-chalkboard-teacher text-sm"></i>
+                                </div>
+                                <span class="font-bold text-sm text-slate-700">Faculty Dashboard</span>
+                            </div>
+                        </label>
+
+                        <label class="role-option">
+                            <input type="radio" name="role" value="admin" class="hidden radio-input">
+                            <div class="role-card flex items-center p-3.5 rounded-xl">
+                                <div class="w-9 h-9 role-icon-box rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-user-shield text-sm"></i>
+                                </div>
+                                <span class="font-bold text-sm text-slate-700">Admin Control</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-4 primary-btn text-white font-bold rounded-xl mt-6">
+                    <span id="btn-text">Authenticate Securely</span>
+                </button>
+            </form>
+
+            <div class="mt-10 text-center border-t border-slate-100 pt-8">
+                <p class="text-slate-500 text-sm">
+                    Access issue? 
+                    <button onclick="toggleAuth()" id="toggle-link" class="text-blue-600 font-bold hover:underline ml-1">
+                        Create new account
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+
+    <script>
+        function toggleAuth() {
+            const actionInput = document.getElementById('auth-action');
+            const title = document.getElementById('form-title');
+            const subtitle = document.getElementById('form-subtitle');
+            const btnText = document.getElementById('btn-text');
+            const toggleLink = document.getElementById('toggle-link');
+            const signupFields = document.querySelectorAll('.signup-only');
+
+            if (actionInput.value === 'login') {
+                actionInput.value = 'signup';
+                title.innerText = 'Registration';
+                subtitle.innerText = 'Establish your official learner profile.';
+                btnText.innerText = 'Register Account';
+                toggleLink.innerText = 'Return to Login';
+                signupFields.forEach(f => f.classList.add('show'));
+            } else {
+                actionInput.value = 'login';
+                title.innerText = 'Portal Access';
+                subtitle.innerText = 'Please provide your credentials to continue.';
+                btnText.innerText = 'Authenticate Securely';
+                toggleLink.innerText = 'Create new account';
+                signupFields.forEach(f => f.classList.remove('show'));
+            }
+        }
+    </script>
+</body>
+</html>
